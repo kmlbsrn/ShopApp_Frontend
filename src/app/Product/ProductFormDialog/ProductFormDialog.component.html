@@ -1,0 +1,35 @@
+<h3 class="text-center">{{title}}</h3>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto mt-8 p-4 bg-white shadow-md rounded-md">
+  <label for="name" class="block text-gray-700 font-bold mb-2">Ürün Adı:</label>
+  <input type="text" id="name" formControlName="name"
+    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" required>
+  <span *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched"
+    class="text-red-500 text-sm">Ürün adı boş olamaz</span>
+
+  <label for="unitInStock" class="block text-gray-700 font-bold mt-4 mb-2">Ürün Stok Adedi:</label>
+  <input type="text" id="unitInStock" formControlName="unitInStock"
+    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" required>
+  <span *ngIf="productForm.get('unitInStock')?.invalid && productForm.get('unitInStock')?.touched"
+    class="text-red-500 text-sm">Ürün stok adedi boş olamaz</span>
+
+  <label for="price" class="block text-gray-700 font-bold mt-4 mb-2">Ürün Fiyatı:</label>
+  <input type="text" id="price" formControlName="unitPrice"
+    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" required>
+  <span *ngIf="productForm.get('unitPrice')?.invalid && productForm.get('unitPrice')?.touched"
+    class="text-red-500 text-sm">Ürün fiyatı boş olamaz</span>
+
+  <label for="categoryId" class="block text-gray-700 font-bold mt-4 mb-2">Ürün Kategorisi:</label>
+  <select id="categoryId" formControlName="categoryId"
+    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" required>
+    <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+  </select>
+  <span *ngIf="productForm.get('categoryId')?.invalid && productForm.get('categoryId')?.touched"
+    class="text-red-500 text-sm">Ürün kategorisi boş olamaz</span>
+
+  <div class="text-right">
+    <button type="submit"
+      class="bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue ">
+      Submit
+    </button>
+  </div>
+</form>

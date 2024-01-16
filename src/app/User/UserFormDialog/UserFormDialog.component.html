@@ -1,0 +1,97 @@
+<!-- <div class="flex justify-center">
+  <div class="w-full md:w-2/3 lg:w-1/2">
+    <div class="bg-white p-8 shadow-md rounded-md">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">User Name</label>
+              <input formControlName="userName" type="text" class="form-input">
+              <span *ngIf="userForm.get('userName')?.hasError('required') &&
+                (userForm.get('userName')?.dirty ||
+                userForm.get('userName')?.touched ||
+                IsSubmitted)" class="text-xs text-red-500">Kullanıcı adı boş olamaz</span>
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">Password</label>
+              <input formControlName="password" type="password" class="form-input">
+            </div>
+          </div>
+          <div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">First Name</label>
+              <input formControlName="firstName" type="text" class="form-input">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">Last Name</label>
+              <input formControlName="lastName" type="text" class="form-input">
+            </div>
+          </div>
+          <div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">Phone Number</label>
+              <input formControlName="phoneNumber" type="text" class="form-input">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-semibold text-gray-600">Email</label>
+              <input formControlName="email" type="text" class="form-input">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+<h3 class="text-center">{{title}}</h3>
+
+<div class="bg-white p-8 rounded-md shadow-lg max-w-screen-md mx-auto">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- User Name Field -->
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">User Name</label>
+        <input formControlName="userName" type="text" class="form-input">
+        <span *ngIf="userForm.get('userName')?.hasError('required') &&
+          (userForm.get('userName')?.dirty ||
+          userForm.get('userName')?.touched ||
+          IsSubmitted)" class="text-xs text-red-500">Kullanıcı adı boş olamaz</span>
+      </div>
+      <!-- Password Field -->
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">Password</label>
+        <input formControlName="password" type="password" class="form-input">
+      </div>
+      <!-- First Name and Last Name Fields -->
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">First Name</label>
+        <input formControlName="firstName" type="text" class="form-input">
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">Last Name</label>
+        <input formControlName="lastName" type="text" class="form-input">
+      </div>
+      <!-- Phone Number and Email Fields -->
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">Phone Number</label>
+        <input formControlName="phoneNumber" type="text" class="form-input">
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-semibold text-gray-600">Email</label>
+        <input formControlName="email" type="text" class="form-input">
+      </div>
+    </div>
+    <div class="flex justify-end">
+      <button type="submit" [disabled]="userForm.invalid" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+        Submit
+      </button>
+    </div>
+    <div *ngIf="userForm.invalid" class="text-red-500 text-sm mt-2">
+      Lütfen tüm alanları doldurun.
+    </div>
+  </form>
+</div>
+
+

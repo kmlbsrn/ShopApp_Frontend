@@ -1,0 +1,25 @@
+<div class="card shadow-lg">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Ad</th>
+        <th scope="col">Soyad</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Oluşturulma Tarihi</th>
+        <th scope="col">Güncellenme Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userDetail of userDetail">
+        <th scope="row">{{userDetail.id}}</th>
+        <td>{{userDetail.firstName}}</td>
+        <td>{{userDetail.lastName}}</td>
+        <td>{{userDetail.phoneNumber}}</td>
+        <td>{{userDetail.createdDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+        <td>{{userDetail.modifiedDate | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
